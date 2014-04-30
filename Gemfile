@@ -4,7 +4,15 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#only use this on my computer and not use it for heroku 
+gem 'sqlite3', group: :development
+#on my life site we want to use postgres
+gem 'pg', group: :production
+
+#we want to make our site work on heroku
+gem 'rails_12factor', group: :production
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -43,3 +51,16 @@ gem "steer"
 gem "simple_form"
 
 gem "activeadmin", github: "gregbell/active_admin"
+
+
+
+
+
+
+
+
+
+
+
+
+

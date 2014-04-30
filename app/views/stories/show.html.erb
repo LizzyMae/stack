@@ -1,0 +1,39 @@
+<h2> 
+	<%= link_to @story.title, @story.link %>
+</h2>
+
+<p> <%= @story.description %></p>
+
+<p> <%= @story.created_at %></p>
+
+
+
+
+<div class="actions">
+	<%= link_to "Edit", edit_story_path(@story), class: "edit" %>
+
+
+	<%= link_to "Delete", story_path(@story), method: :delete, data: { confirm: "are u sure?" }, class: "delete" %>
+</div>
+
+
+<h3><%= pluralize @story.comments.size, "comment" %></h3>
+
+<% @story.comments.each do |comment| %>
+	
+	<div class="comment">
+		<%= simple_format comment.body %>
+
+		<p><%= time_ago_in_words comment.created_at %> ago</p>
+	</div>
+
+<% end %> 
+
+
+
+<p>
+	<%= link_to "Add a new comment", new_story_comment_path(@story) %>
+</p>
+
+
+<p> <%= link_to "back to homepage", root_path %></p>
